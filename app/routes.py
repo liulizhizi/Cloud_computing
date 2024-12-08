@@ -18,7 +18,7 @@ def login_required(f):
     return wrap
 
 # 路由：首页
-@routes_bp.route('/home', methods=['GET'])
+@routes_bp.route('/', methods=['GET'])
 def home():
     print(session)
     if session.get('logged_in'):
