@@ -1,22 +1,24 @@
-<!-- register.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-</head>
-<body>
-    <h1>Register</h1>
-    <form method="POST">
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username" required><br><br>
+{% extends 'base.html' %}
 
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password" required><br><br>
+{% block body %}
+<div class="content auth">
+    <p class="h2" style="padding:10px 0">Register</p>
+    <form method="POST" action="/register">
+        <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" placeholder="username">
 
-        <button type="submit">Register</button>
+        </div>
+        <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <label for="password">Password Comfirmation</label>
+            <input type="password" class="form-control" id="confirm-password" placeholder="double-check password">
+            </div>
+        <button type="submit" class="btn btn-dark" id="register-submit">Submit</button>
+        <a href="{{ url_for('routes.home') }}">Back to Home</a>
     </form>
-    <a href="{{ url_for('routes.home') }}">Back to Home</a>
-</body>
-</html>
+</div>
+{% endblock %}

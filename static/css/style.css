@@ -1,0 +1,13 @@
+.content{
+    height: 90vh;
+    width: 800px;
+    margin: auto;
+    padding:40px 0;
+}
+.header{
+    height: 60px;
+    line-height: 60px;
+}
+.auth{
+    width: 600px;
+}

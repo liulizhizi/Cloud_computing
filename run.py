@@ -6,7 +6,7 @@ from app.config import Config
 
 app = Flask(__name__)
 app.config.from_object(Config)
-
+app.secret_key = "super secret key"
 # 初始化扩展
 db.init_app(app)
 jwt = JWTManager(app)

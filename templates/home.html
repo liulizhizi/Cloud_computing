@@ -1,14 +1,58 @@
-<!-- home.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-</head>
-<body>
-    <h1>Welcome to the Home Page</h1>
-    <a href="{{ url_for('routes.register') }}">Register</a>
-    <a href="{{ url_for('routes.login') }}">Login</a>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="content">
+  <div class="header">
+    <h1 style="display: inline-block;">Weather App</h1>
+
+    <div style="display:inline-block;float: right;font-size:20px">
+        {% if user %}
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+          </svg>
+        <p style="display: inline-block; margin-right: 10px;">{{user}}</p>
+        <a href="{{url_for('routes.logout')}}">log out</a>
+        {% else %}
+        <a href="{{url_for('routes.login')}}">login</a>
+        /
+        <a href="{{url_for('routes.register')}}">register</a>
+        {% endif%}
+    </div>
+    
+  </div>
+ 
+    {% if user %}
+    <form action="/" style="margin:20px 0;">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+    <div class="list-group">
+      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="row">
+          <div class="col-md-auto">
+            London
+          </div>
+          <div class="col">
+          </div>
+          <div class="col col-lg-2">
+            5-10 °C
+          </div>
+        </div>
+      </a>
+      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="row">
+          <div class="col-md-auto">
+            Bristol
+          </div>
+          <div class="col">
+          </div>
+          <div class="col col-lg-2">
+            7-9 °C
+          </div>
+        </div>
+      </a>
+
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
