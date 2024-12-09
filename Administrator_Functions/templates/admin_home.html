@@ -1,0 +1,26 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Records Page</title>
+</head>
+<body>
+    <h1>Access Records</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>User</th>
+        </tr>
+        {% for record in access_records %}
+            <tr>
+                <td>{{ record.id }}</td>
+                <td>{{ record.datetime }}</td>
+                <td>{{ record.user.username or 'Anonymous User' }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
