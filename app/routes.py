@@ -42,7 +42,7 @@ def login():
 
 # 路由：修改密码
 @routes_bp.route('/change-password', methods=['GET', 'POST'])
-@jwt_required()
+# @jwt_required()
 def change_password():
     if request.method == 'POST':
         return auth.change_password()

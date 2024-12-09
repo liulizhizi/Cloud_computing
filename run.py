@@ -19,6 +19,9 @@ from app.routes import routes_bp as routes_app
 # 注册路由
 app.register_blueprint(routes_app)
 
+from app.weather import weather_bp
+app.register_blueprint(weather_bp)
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)

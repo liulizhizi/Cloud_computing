@@ -13,8 +13,12 @@
         <input type="password" class="form-control" id="password" name="password" placeholder="Password">
         </div>
 
+        <div style="margin-bottom: 10px;">
+            <a href="{{ url_for('routes.home') }}">Back to Home</a>&nbsp;&nbsp;
+            <a href="{{ url_for('routes.change_password') }}">Forget password?</a>
+        </div>
+        
         <button type="submit" class="btn btn-dark">Submit</button>
-        <a href="{{ url_for('routes.home') }}">Back to Home</a>
     </form>
 </div>
 {%endblock%}

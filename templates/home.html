@@ -22,37 +22,22 @@
   </div>
  
     {% if user %}
-    <form action="/" style="margin:20px 0;">
-        <input type="text" placeholder="Search.." name="search">
+    <form action="{{url_for('weather.weather_query')}}" method="POST" style="margin:20px 0;">
+        <input type="text" placeholder="Search for city.." name="city">
         <button type="submit"><i class="fa fa-search"></i></button>
     </form>
-    <div class="list-group">
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="row">
-          <div class="col-md-auto">
-            London
-          </div>
-          <div class="col">
-          </div>
-          <div class="col col-lg-2">
-            5-10 °C
-          </div>
-        </div>
-      </a>
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="row">
-          <div class="col-md-auto">
-            Bristol
-          </div>
-          <div class="col">
-          </div>
-          <div class="col col-lg-2">
-            7-9 °C
-          </div>
-        </div>
-      </a>
-
+    {% if temperature %}
+    <div class="result">
+        <p>The current temperature in {{ city_name }} is: {{ temperature }}°C</p>
+        <p>Weather: {{ weather_description }}</p>
     </div>
+    {% elif error_message %}
+    <div class="error">
+        <p>{{ error_message }}</p>
+    </div>
+    {% endif %}
+    {% else %}
+    <p style="font-size: 20px;">Please login first.</p>
     {% endif %}
 </div>
 {% endblock %}

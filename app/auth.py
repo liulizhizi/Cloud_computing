@@ -55,18 +55,20 @@ def login():
         return redirect(url_for('routes.login'))
 
 def change_password():
-    data = request.get_json()
-    new_password = data['new_password']
-    username = data['username']
+    new_password = request.form['new_password']
+    username = request.form['username']
 
     user = User.query.filter_by(username=username).first()
+    print(user)
     if user:
         hashed_password = bcrypt.generate_password_hash(new_password).decode('utf-8')
         user.password = hashed_password
         db.session.commit()
-        return jsonify(message="Password updated successfully"), 200
+        flash("Password updated successfully")
+        return redirect(url_for('routes.login'))
     else:
-        return jsonify(message="User not found"), 404
+        flash("User not found")
+        return redirect(url_for('routes.change_password'))
 
 def delete_user():
     data = request.get_json()
