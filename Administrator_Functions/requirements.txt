@@ -1,4 +1,0 @@
-flask
-Flask-Bcrypt
-Flask-SQLAlchemy
-Flask-JWT-Extended
