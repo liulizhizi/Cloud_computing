@@ -22,5 +22,8 @@ After changing password, the changed password will save in user.db again.
 ## Home Page After Login
 After login, you can type city in search bar. You will see the weather after clicking on the search button.
 ![image](https://github.com/user-attachments/assets/17f93091-c7f7-48d4-94c7-a84186cafb17)
+## Administrator Check
+After login with administrator state, you can see the user status.
+![3eecf29ec509f5e081ec2c13ee915de](https://github.com/user-attachments/assets/96d4148d-186f-4911-8590-d5764224d7f2)
 
 
