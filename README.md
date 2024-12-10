@@ -1,4 +1,5 @@
 # Weather App
+![image](https://github.com/user-attachments/assets/3b770b5c-13f3-4c54-8690-33d86c536aa6)
 ## Preview
 To start this project, you should install the libraries in requirements.txt.
 ```console
